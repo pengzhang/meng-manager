@@ -1,0 +1,30 @@
+#{extends 'CRUD/layout.html' /}
+#{set title:messages.get('crud.show.title', type.modelName) /}
+
+<div id="crudShow" class="${type.name}">
+<div class="row-fluid">
+	<div class="span8 ">
+    <h2>&{'crud.show.title', type.modelName}</h2>
+	</div>
+	<div class="span4">
+    #{form class:'form', action:@delete(object._key())}
+        	<div class="control-group" style="margin-bottom: 0;">
+            <input type="submit" class="btn btn-danger btn-large pull-right" value="&{'crud.delete', type.modelName}" />
+            </div>
+    #{/form}
+    </div>
+    </div>
+    <div class="objectForm">
+    #{form action:@save(object._key()), class:'form form-horizontal form-striped',enctype:'multipart/form-data'}
+        #{crud.form /}
+        	<div class="form-actions " style="margin-bottom: 0;">
+            <input type="submit" class="btn btn-primary btn-large" name="_save" value="&{'crud.save', type.modelName}" />
+            <input type="submit" class="btn btn-primary btn-large" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
+            </div>
+    #{/form}
+    
+    </div>
+
+    
+
+</div>
