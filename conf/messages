@@ -16,6 +16,9 @@ login.submit=登录
 logout=退出
 
 #Left Nav
+adminuser.mgr=Admin管理
+adminuser.list=管理员列表
+adminuser.add=添加管理员
 user.mgr=用户管理
 user.list=用户列表
 user.add=添加用户
@@ -27,6 +30,11 @@ role.list=角色列表
 role.add=添加角色
 online.mgr=在线用户管理
 online.list=在线用户列表
+article.mgr=文章管理
+article.list=文章列表
+article.add=添加文章
+
+list.operate=操作
 
 
 
@@ -38,16 +46,26 @@ desc=角色描述
 resources=拥有的资源
 
 
+AdminUsers=管理员
+AdminUser=管理员
 Users=用户
 User=用户
 username=用户名
 fullname=全名
+mobile=手机号
+realName=真实姓名
 address=详细地址
 status=禁用状态
 isAdmin=是否管理员
 registerDate=注册日期
 lastLoginDate=最后登录时间
 roles=所属角色 
+isVip=高级会员
+nickName=昵称
+cardId=身份证号
+gender=性别
+tel=电话
+company=公司
 
 
 Resources=资源

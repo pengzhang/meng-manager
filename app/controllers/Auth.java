@@ -2,10 +2,10 @@ package controllers;
 
 import java.util.List;
 
+import models.AdminUser;
 import models.Online;
 import models.Resource;
 import models.Role;
-import models.User;
 import play.mvc.Controller;
 
 import com.google.gson.Gson;
@@ -29,7 +29,7 @@ public class Auth extends Controller {
 				renderJSON(json);
 			}
 			
-			List<User> users = User.find("select u from User u join u.roles ur join ur.resources res where u.email=(:email) and res.resource in (:resource)")
+			List<AdminUser> users = AdminUser.find("select u from User u join u.roles ur join ur.resources res where u.email=(:email) and res.resource in (:resource)")
 					.bind("email", online.username).bind("resource", res.resource).fetch();
 			
 			System.out.println(new Gson().toJson(users));

@@ -10,6 +10,18 @@
 			    </a>
 			    <ul class='nav nav-stacked'>
 			    	<li class=''>
+			            <a href='@{AdminUsers.list()}'>
+			                <i class='icon-caret-right'></i>
+			                <span>&{'adminuser.list'}</span>
+			            </a>
+			        </li>
+			        <li class=''>
+			            <a href='@{AdminUsers.blank()}'>
+			                <i class='icon-caret-right'></i>
+			                <span>&{'adminuser.add'}</span>
+			            </a>
+			        </li>
+			        <li class=''>
 			            <a href='@{Users.list()}'>
 			                <i class='icon-caret-right'></i>
 			                <span>&{'user.list'}</span>
@@ -21,7 +33,6 @@
 			                <span>&{'user.add'}</span>
 			            </a>
 			        </li>
-			        
 			    </ul>
 			</li>
 			<li class=''>
@@ -78,6 +89,27 @@
 			            <a href='@{Onlines.list()}'>
 			                <i class='icon-caret-right'></i>
 			                <span>&{'online.list'}</span>
+			            </a>
+			        </li>
+			    </ul>
+			</li>
+			<li class=''>
+			    <a class='dropdown-collapse' href='#'>
+			        <i class='icon-edit'></i>
+			        <span>&{'article.mgr'}</span>
+			        <i class='icon-angle-down angle-down'></i>
+			    </a>
+			    <ul class='nav nav-stacked'>
+			        <li class=''>
+			            <a href='@{Articles.list()}'>
+			                <i class='icon-caret-right'></i>
+			                <span>&{'article.list'}</span>
+			            </a>
+			        </li>
+			        <li class=''>
+			            <a href='@{Articles.blank()}'>
+			                <i class='icon-caret-right'></i>
+			                <span>&{'article.add'}</span>
 			            </a>
 			        </li>
 			    </ul>

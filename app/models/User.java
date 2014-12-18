@@ -1,59 +1,86 @@
 package models;
 
-import java.util.Date;
-import java.util.List;
-
-import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-import play.data.validation.Email;
-import play.data.validation.Password;
-import play.data.validation.Required;
 import play.db.jpa.Model;
 import play.libs.Codec;
 
 @Entity
 public class User extends Model{
+
+	/**
+	 * 用户名
+	 */
 	
-	@Required
 	public String username;
 	
-	@Required
-	@Password
+	
+	public String code = Codec.UUID();
+	
+	/**
+	 * 密码
+	 */
+	
 	public String password;
+
+	/**
+	 * 是否高级会员
+	 */
 	
-	public String fullname;
+	public boolean isVip;
 	
-	@Email
-    @Required
+	/**
+	 * 真实姓名
+	 */
+	
+	public String realName;
+	
+	/**
+	 * 昵称
+	 */
+	
+	public String nickName;
+	
+	/**
+	 * 身份证号
+	 */
+	
+	public String cardId;
+	
+	/**
+	 * 性别
+	 */
+	
+	public boolean gender;
+	
+	/**
+	 * 电子邮箱
+	 */
+	
 	public String email;
 	
-	public String address;
+	/**
+	 * 移动电话
+	 */
 	
-	@Required
-	public boolean status=false;
+	public String mobile;
 	
-	@Required
-	public boolean isAdmin=false;
+	/**
+	 * 电话号码
+	 */
 	
-	@Temporal(TemporalType.TIMESTAMP)
-	public Date registerDate;
+	public String tel;
 	
-	public Date lastLoginDate;
+	/**
+	 * 公司名称
+	 */
 	
-	@Required
-	@ManyToMany(cascade=CascadeType.PERSIST)
-	public List<Role> roles;
+	public String company;
 	
-	public static User connect(String email, String password) {
-        return find("byEmailAndPasswordAndStatus", email, Codec.hexMD5(password),false).first();
-    }
 	
-	public String toString(){
-		return email;
-	}
+	public boolean status = false; 
 	
 }

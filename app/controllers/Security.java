@@ -2,14 +2,14 @@ package controllers;
 
 import java.util.Date;
 
+import models.AdminUser;
 import models.Online;
-import models.User;
 import play.libs.Codec;
 
 public class Security extends Secure.Security {
 
 	static boolean authentify(String email, String password) {
-		if (User.connect(email, password) != null) {
+		if (AdminUser.connect(email, password) != null) {
 			Online online = Online.find("byUsername", email).first();
 			if (online == null) {
 				String access_token = Codec.UUID();
@@ -21,19 +21,19 @@ public class Security extends Secure.Security {
 		}
 		
 		//TODO 自动下线
-		return User.connect(email, password) != null;
+		return AdminUser.connect(email, password) != null;
 	}
 
 	static boolean check(String profile) {
 		if ("admin".equals(profile)) {
-			return User.find("byEmail", connected()).<User> first().isAdmin;
+			return AdminUser.find("byEmail", connected()).<AdminUser> first().isAdmin;
 		}
 		return false;
 	}
 	
 	static void onDisconnect(){
 		String username = session.get("username");
-		User user = User.find("byEmail", username).first();
+		AdminUser user = AdminUser.find("byEmail", username).first();
 		Online online = Online.find("byUsername", username).first();
 		if (online != null) {
 			user.lastLoginDate = online.logintime;

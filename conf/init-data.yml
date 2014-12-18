@@ -9,7 +9,7 @@ Role(rol):
     resources:      
                     - res
 
-User(bob):
+AdminUser(bob):
     email:          bob@gmail.com
     password:       202cb962ac59075b964b07152d234b70
     fullname:       Bob

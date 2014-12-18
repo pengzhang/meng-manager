@@ -8,9 +8,9 @@
             #{crud.search /}
         </div>
         <div class='box-content box-no-padding'>
-        #{crud.table fields:['email','username','fullname','address','status','isAdmin','registerDate','lastLoginDate','roles']}
+        #{crud.table fields:['email','username','fullname','mobile','realName','address','status','isAdmin','registerDate','lastLoginDate','roles','list.operate']}
         	#{crud.custom 'email'}
-        		<a href="@{Users.show(object.id)}">${object.email}</a>
+        		<a href="@{AdminUsers.show(object.id)}">${object.email}</a>
         	#{/crud.custom}
         	#{crud.custom 'status'}
         		#{if object.status == true}
@@ -27,6 +27,13 @@
         		#{else}
         		否
         		#{/else}
+        	#{/crud.custom}
+        	#{crud.custom 'list.operate'}
+        		  #{form class:'form', action:@delete(object._key())}
+			        	<div class="control-group" style="margin-bottom: 0;">
+			            <input type="submit" class="btn btn-danger btn-small" value="&{'crud.delete', type.modelName}" />
+			            </div>
+			    #{/form}
         	#{/crud.custom}
         #{/crud.table}
         </div>
